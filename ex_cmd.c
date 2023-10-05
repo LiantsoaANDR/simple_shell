@@ -5,6 +5,6 @@
  * @env: the environment
  * Return: void
  */
-void ex_cmd(char **array, char **env)
+void ex_cmd(char *text, char **env)
 {
 }

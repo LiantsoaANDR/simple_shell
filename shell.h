@@ -8,8 +8,9 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+char *_strdup(char *string);
 char *get_input(void);
 char **get_cmd(char *text);
-void ex_cmd(char **array, char **env);
+void ex_cmd(char *text, char **env);
 
 #endif
