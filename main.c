@@ -14,10 +14,8 @@ int main(int argc, char **argv, char **env)
 	(void)argv;
 
 LOOP:
-	/**
-	 * get_input - gets the text from the input
-	 * ex_cmd - executes the cmd
-	 */
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "$ ", 2);
 	text = get_input();
 	ex_cmd(text, env);
 	goto LOOP;
