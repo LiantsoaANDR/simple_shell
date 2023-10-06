@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+void free_array(char **array);
 char *_strdup(char *string);
 char *get_input(void);
 char **get_cmd(char *text);

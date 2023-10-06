@@ -1,7 +1,8 @@
 #include "shell.h"
 /*
- * this file will contain all the string functions
- * we will need
+ * _strdup - duplicate a string
+ * @string: the string to be duplicated
+ * Return: the duplicated string, 0 if @string is NULL
  */
 char *_strdup(char *string)
 {
