@@ -15,6 +15,7 @@ void free_array(char **array)
 	{
 		free(array[i]);
 		array[i] = NULL;
+		i++;
 	}
 
 	free(array);

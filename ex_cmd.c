@@ -30,6 +30,6 @@ void ex_cmd(char *text, char **env)
 	else
 	{
 		wait(&status);
+		free_array(array);
 	}
-	free_array(array);
 }
