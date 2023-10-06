@@ -5,9 +5,9 @@
  */
 char *get_input(void)
 {
-	char *text;
+	char *text = NULL;
 	size_t size = 0;
-	ssize_t read;
+	ssize_t read = 0;
 
 	read = getline(&text, &size, stdin);
 	if (read == -1)

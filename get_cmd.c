@@ -7,7 +7,8 @@
  */
 char **get_cmd(char *text)
 {
-	char **array, *delim = " \n", *copy, *token;
+	char **array = NULL;
+	char *delim = " \n", *copy = NULL, *token = NULL;
 	unsigned int arrc = 0, i = 0;
 
 	copy = _strdup(text);

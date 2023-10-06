@@ -1,5 +1,5 @@
 #include "shell.h"
-/*
+/**
  * _strdup - duplicate a string
  * @string: the string to be duplicated
  * Return: the duplicated string, 0 if @string is NULL

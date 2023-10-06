@@ -12,7 +12,6 @@ void ex_cmd(char *text, char **env)
 	int status;
 
 	array = get_cmd(text);
-	free(text);
 
 	child_process = fork();
 	if (child_process == -1)
