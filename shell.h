@@ -14,6 +14,7 @@ void free_array(char **array);
 /*string functions*/
 int is_space(char *string);
 char *_strdup(char *string);
+int str_cmp(char *first, char *second);
 
 char *get_input(void);
 char **get_cmd(char *text);
