@@ -14,11 +14,8 @@ void ex_cmd(char *text, char **env)
 	array = get_cmd(text);
 
 	if (str_cmp(array[0], "exit"))
-	{
-		free_array(array);
-		write(STDOUT_FILENO, "exit\n", 5);
-		exit(EXIT_SUCCESS);
-	}
+		exit_cmd(array);
+
 	child_process = fork();
 	if (child_process == -1)
 	{

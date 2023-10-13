@@ -60,7 +60,7 @@ int str_cmp(char *first, char *second)
 		i++;
 	}
 
-	if ((!first [i] && second[i]) || (first[i] && !second[i]))
+	if ((!first[i] && second[i]) || (first[i] && !second[i]))
 		return (0);
 
 	return (1);

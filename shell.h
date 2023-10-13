@@ -16,6 +16,7 @@ int is_space(char *string);
 char *_strdup(char *string);
 int str_cmp(char *first, char *second);
 
+void exit_cmd(char **array);
 char *get_input(void);
 char **get_cmd(char *text);
 void ex_cmd(char *text, char **env);
