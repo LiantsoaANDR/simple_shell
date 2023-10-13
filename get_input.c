@@ -15,5 +15,8 @@ char *get_input(void)
 		free(text);
 		exit(EXIT_FAILURE);
 	}
+	if (text[read - 1] == '\n')
+		text[read - 1] = '\0';
+
 	return (text);
 }

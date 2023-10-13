@@ -25,3 +25,21 @@ char *_strdup(char *string)
 
 	return (new);
 }
+/**
+ * is_space - checks if there is only space in a string
+ * @string: the string to look into
+ * Return: 0 if false and 1 if true
+ */
+int is_space(char *string)
+{
+	unsigned int i = 0;
+
+	while (string[i])
+	{
+		if (string[i] != ' ')
+			return (0);
+		i++;
+	}
+
+	return (1);
+}

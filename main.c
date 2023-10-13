@@ -17,6 +17,12 @@ LOOP:
 	if (isatty(STDIN_FILENO))
 		write(STDOUT_FILENO, "$ ", 2);
 	text = get_input();
+	if (*text == '\0' || is_space(text))
+	{
+		free(text);
+		goto LOOP;
+	}
+
 	ex_cmd(text, env);
 	goto LOOP;
 

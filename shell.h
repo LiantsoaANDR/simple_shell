@@ -8,8 +8,13 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+/*free functions*/
 void free_array(char **array);
+
+/*string functions*/
+int is_space(char *string);
 char *_strdup(char *string);
+
 char *get_input(void);
 char **get_cmd(char *text);
 void ex_cmd(char *text, char **env);

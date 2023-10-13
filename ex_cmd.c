@@ -16,6 +16,7 @@ void ex_cmd(char *text, char **env)
 	child_process = fork();
 	if (child_process == -1)
 	{
+		perror("fork");
 		free_array(array);
 		exit(EXIT_FAILURE);
 	}
@@ -23,6 +24,7 @@ void ex_cmd(char *text, char **env)
 	{
 		if (execve(array[0], array, env) == -1)
 		{
+			perror(array[0]);
 			free_array(array);
 			exit(EXIT_FAILURE);
 		}
