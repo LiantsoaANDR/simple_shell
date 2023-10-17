@@ -17,26 +17,28 @@ void ex_cmd(char *text, char **env)
 		exit_cmd(array);
 
 	cmd = find_cmd(array[0], env);
+	if (!cmd)
+		error_ar(array[0], array);
 
 	child_process = fork();
 	if (child_process == -1)
 	{
-		perror("fork");
-		free_array(array);
-		exit(EXIT_FAILURE);
+		free(cmd);
+		error_ar("fork", array);
 	}
+
 	if (child_process == 0)
 	{
 		if (execve(cmd, array, env) == -1)
 		{
-			perror(array[0]);
-			free_array(array);
-			exit(EXIT_FAILURE);
+			free(cmd);
+			error_ar(array[0], array);
 		}
 	}
 	else
 	{
 		wait(&status);
 		free_array(array);
+		free(cmd);
 	}
 }

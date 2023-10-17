@@ -65,6 +65,6 @@ char *find_cmd(char *cmd, char **env)
 	}
 	free(copy);
 
-	return (cmd);
+	return (0);
 
 }

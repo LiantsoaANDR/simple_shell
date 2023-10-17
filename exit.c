@@ -17,3 +17,14 @@ void exit_cmd(char **array)
 
 	exit(EXIT_SUCCESS);
 }
+/**
+ * error_ar - output an error message then free an array and exit
+ * @msg: the error message
+ * @array: the array
+ */
+void error_ar(char *msg, char **array)
+{
+	perror(msg);
+	free_array(array);
+	exit(EXIT_FAILURE);
+}
