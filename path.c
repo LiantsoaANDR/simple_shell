@@ -26,19 +26,23 @@ char *find_path(char **env)
  */
 char *find_cmd(char *cmd, char **env)
 {
-	char *path, *copy,*token, *cmd_path;
+	char *path = NULL, *copy = NULL;
+	char *token = NULL, *cmd_path = NULL;
 	struct stat buff;
 	unsigned int c = 0, t = 0;
 
+	while (cmd[c])
+		c++;
+
 	if (stat(cmd, &buff) == 0)
-		return (cmd);
+	{
+		cmd_path = _strdup(cmd);
+		return (cmd_path);
+	}
 
 	path = find_path(env);
 	if (!path)
 		return (0);
-
-	while (cmd[c])
-		c++;
 
 	copy = _strdup(path);
 	token = strtok(copy, ":");
