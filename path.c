@@ -65,16 +65,3 @@ char *find_cmd(char *cmd, char **env)
 	return (cmd);
 
 }
-int main(int argc, char **argv, char **env)
-{
-	int i = 0;
-	char *cmd;
-
-	(void)argc;
-	(void)argv;
-
-	cmd = find_cmd("echo", env);
-	printf("%s\n", cmd);
-
-	return (0);
-}
