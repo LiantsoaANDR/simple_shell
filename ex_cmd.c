@@ -7,7 +7,7 @@
  */
 void ex_cmd(char *text, char **env)
 {
-	char **array;
+	char **array, *cmd;
 	pid_t child_process;
 	int status;
 
@@ -15,6 +15,8 @@ void ex_cmd(char *text, char **env)
 
 	if (str_cmp(array[0], "exit"))
 		exit_cmd(array);
+
+	cmd = find_cmd(array[0], env);
 
 	child_process = fork();
 	if (child_process == -1)
@@ -25,7 +27,7 @@ void ex_cmd(char *text, char **env)
 	}
 	if (child_process == 0)
 	{
-		if (execve(array[0], array, env) == -1)
+		if (execve(cmd, array, env) == -1)
 		{
 			perror(array[0]);
 			free_array(array);

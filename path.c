@@ -7,7 +7,6 @@
  */
 char *find_path(char **env)
 {
-	char *path;
 	unsigned int i = 0;
 
 	while (env[i])
@@ -27,7 +26,7 @@ char *find_path(char **env)
  */
 char *find_cmd(char *cmd, char **env)
 {
-	char *path, *copy, *token, *cmd_path;
+	char *path, *copy,*token, *cmd_path;
 	struct stat buff;
 	unsigned int c = 0, t = 0;
 
@@ -49,19 +48,23 @@ char *find_cmd(char *cmd, char **env)
 		for (t = 0; token[t];)
 			t++;
 		cmd_path = malloc(c + t + 2);
+
 		_strcpy(cmd_path, token);
 		_strcat(cmd_path, "/");
 		_strcat(cmd_path, cmd);
 		_strcat(cmd_path, "\0");
+
 		if (stat(cmd_path, &buff) == 0)
 		{
 			free(copy);
 			return (cmd_path);
 		}
+
 		free(cmd_path);
 		token = strtok(NULL, ":");
 	}
 	free(copy);
+
 	return (cmd);
 
 }
