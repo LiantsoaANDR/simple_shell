@@ -65,3 +65,26 @@ int str_cmp(char *first, char *second)
 
 	return (1);
 }
+/**
+ * str_cmpf - compares if the first given number of two strings are the same
+ * @first: the first string
+ * @second: the second string
+ * @nbr: the given number
+ * Return: 0 if false and 1 if true
+ */
+int str_cmpf(char *first, char *second, unsigned int nbr)
+{
+	unsigned int i = 0;
+
+	while (first[i] && second[i] && i < nbr)
+	{
+		if (first[i] != second[i])
+			return (0);
+		i++;
+	}
+
+	if (((!first[i] && second[i]) || (first[i] && !second[i])) && i < nbr)
+		return (0);
+
+	return (1);
+}
