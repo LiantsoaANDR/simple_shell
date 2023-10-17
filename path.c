@@ -1,6 +1,9 @@
 #include "shell.h"
+#include <string.h>
 /**
- *
+ * find_path - finds the PATH in the env
+ * @env: the env
+ * Return: the PATH as a string
  */
 char *find_path(char **env)
 {
@@ -15,16 +18,23 @@ char *find_path(char **env)
 	}
 	return (0);
 }
+/**
+ * find_cmd - finds the right diresctory into PATH
+ * @cmd: the cmd given the search into PATH
+ * @env: the env
+ * Return: the full path of the cmd asked
+ * If we did not find any match, return the given cmd
+ */
 char *find_cmd(char *cmd, char **env)
 {
-	char *path, char *copy, *token, *cmd_path;
+	char *path, *copy, *token, *cmd_path;
 	struct stat buff;
 	unsigned int c = 0, t = 0;
 
 	if (stat(cmd, &buff) == 0)
 		return (cmd);
 
-	path = find_path(char **env);
+	path = find_path(env);
 	if (!path)
 		return (0);
 
@@ -49,7 +59,7 @@ char *find_cmd(char *cmd, char **env)
 			return (cmd_path);
 		}
 		free(cmd_path);
-		token = strtok(copy, ":");
+		token = strtok(NULL, ":");
 	}
 	free(copy);
 	return (cmd);
@@ -58,15 +68,13 @@ char *find_cmd(char *cmd, char **env)
 int main(int argc, char **argv, char **env)
 {
 	int i = 0;
+	char *cmd;
 
 	(void)argc;
 	(void)argv;
 
-	while (env[i])
-	{
-		printf("The %d th string is: %s\n", i, env[i]);
-		i++;
-	}
+	cmd = find_cmd("echo", env);
+	printf("%s\n", cmd);
 
 	return (0);
 }

@@ -7,6 +7,7 @@
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <sys/stat.h>
 
 /*free functions*/
 void free_array(char **array);
@@ -15,6 +16,13 @@ void free_array(char **array);
 int is_space(char *string);
 char *_strdup(char *string);
 int str_cmp(char *first, char *second);
+int str_cmpf(char *first, char *second, unsigned int nbr);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
+
+/*PATH and env functions*/
+char *find_path(char **env);
+char *find_cmd(char *cmd, char **env);
 
 void exit_cmd(char **array);
 char *get_input(void);
