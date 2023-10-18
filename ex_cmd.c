@@ -7,7 +7,7 @@
  */
 void ex_cmd(char *text, char **env)
 {
-	char **array, *cmd;
+	char **array = NULL, *cmd = NULL;
 	pid_t child_process;
 	int status;
 
@@ -18,8 +18,11 @@ void ex_cmd(char *text, char **env)
 
 	cmd = find_cmd(array[0], env);
 	if (!cmd)
-		error_ar(array[0], array);
-
+	{
+		perror(array[0]);
+		free_array(array);
+		return;
+	}
 	child_process = fork();
 	if (child_process == -1)
 	{
