@@ -48,7 +48,7 @@ char *find_cmd(char *cmd, char **env)
 	{
 		for (t = 0; token[t];)
 			t++;
-		cmd_path = malloc(c + t + 2);
+		cmd_path = malloc(sizeof(char) * (c + t + 2));
 		_strcpy(cmd_path, token);
 		_strcat(cmd_path, "/");
 		_strcat(cmd_path, cmd);
