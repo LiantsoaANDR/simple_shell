@@ -33,42 +33,35 @@ char *find_cmd(char *cmd, char **env)
 
 	while (cmd[c])
 		c++;
-
 	if (stat(cmd, &buff) == 0)
 	{
 		cmd_path = _strdup(cmd);
 		return (cmd_path);
 	}
-
 	path = find_path(env);
 	if (!path)
 		return (0);
 
 	copy = _strdup(path);
 	token = strtok(copy, ":");
-
 	while (token)
 	{
 		for (t = 0; token[t];)
 			t++;
 		cmd_path = malloc(c + t + 2);
-
 		_strcpy(cmd_path, token);
 		_strcat(cmd_path, "/");
 		_strcat(cmd_path, cmd);
 		_strcat(cmd_path, "\0");
-
 		if (stat(cmd_path, &buff) == 0)
 		{
 			free(copy);
 			return (cmd_path);
 		}
-
 		free(cmd_path);
 		token = strtok(NULL, ":");
 	}
 	free(copy);
-
 	return (0);
 
 }
