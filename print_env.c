@@ -2,7 +2,8 @@
 /**
  * print_env - prints the env
  * @env: the env to be printed
- * Return: void
+ * @array: array to be freed
+ * Return: Nothing
  */
 void print_env(char **env, char **array)
 {
@@ -18,6 +19,4 @@ void print_env(char **env, char **array)
 		i++;
 	}
 	free_array(array);
-
-	return;
 }
