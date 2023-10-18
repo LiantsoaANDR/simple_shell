@@ -25,6 +25,7 @@ char *_strcat(char *dest, char *src);
 /*PATH and env functions*/
 char *find_path(char **env);
 char *find_cmd(char *cmd, char **env);
+void print_env(char **env, char **array);
 
 char *get_input(void);
 char **get_cmd(char *text);

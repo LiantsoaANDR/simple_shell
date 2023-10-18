@@ -12,10 +12,13 @@ void ex_cmd(char *text, char **env)
 	int status;
 
 	array = get_cmd(text);
-
 	if (str_cmp(array[0], "exit"))
 		exit_cmd(array);
-
+	if (str_cmp(array[0], "env"))
+	{
+		print_env(env, array);
+		return;
+	}
 	cmd = find_cmd(array[0], env);
 	if (!cmd)
 	{
@@ -29,7 +32,6 @@ void ex_cmd(char *text, char **env)
 		free(cmd);
 		error_ar("fork", array);
 	}
-
 	if (child_process == 0)
 	{
 		if (execve(cmd, array, env) == -1)
