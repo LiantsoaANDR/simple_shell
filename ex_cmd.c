@@ -2,7 +2,6 @@
 /**
  * ex_cmd - executes the cmd asked
  * @text: the text from the input that contains the cmd
- * @env: the environment
  * Return: void
  */
 void ex_cmd(char *text)

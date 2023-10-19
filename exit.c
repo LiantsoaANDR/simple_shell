@@ -6,8 +6,13 @@
  */
 void exit_cmd(char **array)
 {
+	int code = 0;
+
+	if (array[1])
+		code = _atoi(array[1]);
+
 	free_array(array);
-	exit(EXIT_SUCCESS);
+	exit(code);
 }
 /**
  * error_ar - output an error message then free an array and exit

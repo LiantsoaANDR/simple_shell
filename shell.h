@@ -23,6 +23,7 @@ int str_cmp(char *first, char *second);
 int str_cmpf(char *first, char *second, unsigned int nbr);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
+int _atoi(char *s);
 
 /*PATH and env functions*/
 char *find_path(void);
