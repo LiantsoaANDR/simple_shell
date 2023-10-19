@@ -15,7 +15,7 @@ int main(int argc, char **argv, char **env)
 
 LOOP:
 	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "$ ", 2);
+		write(STDOUT_FILENO, "($) ", 4);
 	text = get_input();
 	if (*text == '\0' || is_space(text))
 	{
