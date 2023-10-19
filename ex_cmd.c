@@ -5,7 +5,7 @@
  * @env: the environment
  * Return: void
  */
-void ex_cmd(char *text, char **env)
+void ex_cmd(char *text)
 {
 	char **array = NULL, *cmd = NULL;
 	pid_t child_process;
@@ -16,10 +16,10 @@ void ex_cmd(char *text, char **env)
 		exit_cmd(array);
 	if (str_cmp(array[0], "env"))
 	{
-		print_env(env, array);
+		print_env(array);
 		return;
 	}
-	cmd = find_cmd(array[0], env);
+	cmd = find_cmd(array[0]);
 	if (!cmd)
 	{
 		perror(array[0]);
@@ -34,7 +34,7 @@ void ex_cmd(char *text, char **env)
 	}
 	if (child_process == 0)
 	{
-		if (execve(cmd, array, env) == -1)
+		if (execve(cmd, array, environ) == -1)
 		{
 			free(cmd);
 			error_ar(array[0], array);

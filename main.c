@@ -1,17 +1,11 @@
 #include "shell.h"
 /**
  * main - acts like a simple shell
- * @argc: argument count
- * @argv: argument vector
- * @env: environment
  * Return: 0 on success
  */
-int main(int argc, char **argv, char **env)
+int main(void)
 {
 	char *text;
-
-	(void)argc;
-	(void)argv;
 
 LOOP:
 	if (isatty(STDIN_FILENO))
@@ -23,7 +17,7 @@ LOOP:
 		goto LOOP;
 	}
 
-	ex_cmd(text, env);
+	ex_cmd(text);
 	goto LOOP;
 
 	return (0);

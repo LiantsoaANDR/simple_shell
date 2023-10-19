@@ -2,17 +2,16 @@
 #include <string.h>
 /**
  * find_path - finds the PATH in the env
- * @env: the env
  * Return: the PATH as a string
  */
-char *find_path(char **env)
+char *find_path(void)
 {
 	unsigned int i = 0;
 
-	while (env[i])
+	while (environ[i])
 	{
-		if (str_cmpf(env[i], "PATH", 4))
-			return (env[i]);
+		if (str_cmpf(environ[i], "PATH", 4))
+			return (environ[i]);
 		i++;
 	}
 	return (0);
@@ -20,11 +19,10 @@ char *find_path(char **env)
 /**
  * find_cmd - finds the right diresctory into PATH
  * @cmd: the cmd given the search into PATH
- * @env: the env
  * Return: the full path of the cmd asked
  * If we did not find any match, return the given cmd
  */
-char *find_cmd(char *cmd, char **env)
+char *find_cmd(char *cmd)
 {
 	char *path = NULL, *copy = NULL;
 	char *token = NULL, *cmd_path = NULL;
@@ -38,7 +36,7 @@ char *find_cmd(char *cmd, char **env)
 		cmd_path = _strdup(cmd);
 		return (cmd_path);
 	}
-	path = find_path(env);
+	path = find_path();
 	if (!path)
 		return (0);
 
