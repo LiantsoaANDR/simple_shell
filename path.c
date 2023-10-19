@@ -38,7 +38,7 @@ char *find_cmd(char *cmd)
 	}
 	path = find_path();
 	if (!path)
-		return (0);
+		return (NULL);
 
 	copy = _strdup(path);
 	token = strtok(copy, ":");
@@ -60,5 +60,5 @@ char *find_cmd(char *cmd)
 		token = strtok(NULL, ":");
 	}
 	free(copy);
-	return (0);
+	return (NULL);
 }
