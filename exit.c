@@ -13,7 +13,7 @@ void exit_cmd(char **array)
 
 	if (code < 0)
 	{
-		perror("Status");
+		perror(array[1]);
 		free_array(array);
 		exit(EXIT_FAILURE);
 	}
