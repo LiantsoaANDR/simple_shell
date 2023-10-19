@@ -6,10 +6,7 @@
  */
 void exit_cmd(char **array)
 {
-	write(STDOUT_FILENO, "exit\n", 5);
-
 	free_array(array);
-
 	exit(EXIT_SUCCESS);
 }
 /**
