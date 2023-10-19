@@ -13,7 +13,7 @@ char *get_input(void)
 	if (read == -1)
 	{
 		free(text);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	if (text[read - 1] == '\n')
 		text[read - 1] = '\0';
