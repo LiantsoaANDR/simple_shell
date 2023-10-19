@@ -12,7 +12,11 @@ void exit_cmd(char **array)
 		code = _atoi(array[1]);
 
 	if (code < 0)
-		code = -1;
+	{
+		perror("Status");
+		free_array(array);
+		exit(EXIT_FAILURE);
+	}
 
 	free_array(array);
 	exit(code);
