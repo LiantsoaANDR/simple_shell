@@ -11,13 +11,6 @@ void exit_cmd(char **array)
 	if (array[1])
 		code = _atoi(array[1]);
 
-	if (code < 0)
-	{
-		perror(array[1]);
-		free_array(array);
-		exit(EXIT_FAILURE);
-	}
-
 	free_array(array);
 	exit(code);
 }
