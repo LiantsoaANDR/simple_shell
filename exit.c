@@ -12,7 +12,7 @@ void exit_cmd(char **array)
 		code = _atoi(array[1]);
 
 	if (code < 0)
-		perror(array[0]);
+		perror(array[1]);
 
 	free_array(array);
 	exit(code);
