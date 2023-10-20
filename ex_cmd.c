@@ -39,8 +39,6 @@ void executer(char *cmd, char **array)
 	pid_t child_process;
 	int status;
 
-	if (!cmd)
-		return;
 	child_process = fork();
 	if (child_process == -1)
 	{
