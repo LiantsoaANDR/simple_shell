@@ -14,7 +14,7 @@ char *find_path(void)
 			return (environ[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 /**
  * find_cmd - finds the right diresctory into PATH

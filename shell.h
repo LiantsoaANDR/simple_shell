@@ -33,5 +33,6 @@ void print_env(char **array);
 char *get_input(void);
 char **get_cmd(char *text);
 void ex_cmd(char *text);
+void executer(char *cmd, char **array);
 
 #endif

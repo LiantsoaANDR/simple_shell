@@ -63,5 +63,10 @@ int _atoi(char *s)
 		i++;
 	}
 
+	if (!(s[i] <= '9' && s[i] >= '0') && s[i] != '\0')
+		return (-1);
+
+	res *= sign;
+
 	return (res);
 }
