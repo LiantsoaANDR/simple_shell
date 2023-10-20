@@ -40,11 +40,7 @@ void executer(char *cmd, char **array)
 	int status;
 
 	if (!cmd)
-	{
-		perror(array[0]);
-		free_array(array);
 		return;
-	}
 	child_process = fork();
 	if (child_process == -1)
 	{
